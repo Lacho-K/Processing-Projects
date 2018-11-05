@@ -1,0 +1,28 @@
+int x1  = 100;
+int y1 = 150;
+int w1 = 200;
+int h1 = 50;
+int x2 = 300;
+int y2 = 400;
+int w2 = 200;
+int h2 = 50;
+int c1 = 0;
+int c2 = 255;
+void setup(){
+size(700,600);
+}
+
+void draw(){
+boolean OverButton1 = mouseX > x1 && mouseX < (x1+w1) && mouseY > y1 && mouseY < (y1+h1);
+boolean OverButton2 = mouseX > x2 && mouseX < (x2+w2) && mouseY > y2 && mouseY < (y2+h2);
+if(OverButton1 || OverButton2 ){
+  background(c1);
+  fill(255,0,0);
+}
+else{
+  background(c2);
+  fill(0,255,0);
+}
+rect(x1,y1,w1,h1);
+rect(x2,y2,w2,h2);
+}
