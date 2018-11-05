@@ -1,0 +1,20 @@
+void setup(){
+size(600,600);
+}
+void draw(){
+background(0);
+fill(255,0,200);
+fill(255);
+textSize(30);
+text(":",237,280);
+text(":",300,280);
+text(second(),320,280);
+text(minute(),255,280);
+text(hour(),195,280);
+textSize(20);
+text(year(),310,315);
+text('.',240,315);
+text(month(),260,315);
+text('.',295,315);
+text(day(),200,315);
+}
