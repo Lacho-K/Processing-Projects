@@ -1,0 +1,56 @@
+int score = 0;
+float xr = 0;
+float yr1 = 0;
+float yr2 ;
+float wr = 30;
+float hrup = 150;
+float hrdown = 150;
+float xSpeed = 5; 
+float birdX = 50;
+float birdY = 350;
+float birdW = 50;
+float birdH = 50;
+PImage bird;
+PImage Fon;
+void setup(){
+size(1000,900);
+xr=width;
+yr2 = height - hrup;
+Fon = loadImage("Fon.jpg");
+}
+void draw(){
+background(255);
+imageMode(CENTER);
+image(Fon,width/2,height/2);
+bird = loadImage("c363a11294.png");
+fill(0,255,0);
+rect(xr,yr2,wr,hrup);
+rect(xr,yr1,wr,hrdown);
+xr=xr-xSpeed;
+if(xr<-wr){
+xr=width;
+hrup=random(150,400);
+hrdown=random(150,650);
+}
+if (keyPressed && key == ' '){
+birdY=birdY-10;
+}
+else{
+birdY=birdY+5;
+}
+textSize(55);
+fill(255);
+text(score,700,50);
+image(bird,birdX,birdY);
+boolean NoCollision = birdX == xr && birdY  > (yr1+hrup) && birdY < yr2 ; 
+if(NoCollision){
+score=score+1; 
+}
+boolean Collision = birdY > height - 10|| birdY < 0   || birdX  > xr && birdY < ( yr1 + hrup ) || birdY > yr2 && birdX > xr  ;
+if (Collision){
+   score = 0; 
+   delay(1700);
+   xr = width;
+   birdY = 350;
+  }
+}
