@@ -1,0 +1,32 @@
+float timer;
+float start;
+
+void setup(){
+size(600,600);
+}
+
+
+
+void draw(){
+background(0);
+fill(#FC9917);
+textSize(69);
+text(timer/100,180,300);
+if(keyPressed && key == 's' ){
+start =1;
+}
+if(start ==1){
+timer=timer+1.7;
+}
+
+if(keyPressed && key == 'p'){
+start=0;
+} 
+if(keyPressed && key == 'r'){
+start=2;
+}
+if(start==2){
+timer=0;
+}
+
+}
