@@ -1,0 +1,49 @@
+int x = 100;
+int y = 200;
+int r = 50;
+int xM = 300;
+int yM = 300;
+int rM = 40;
+void setup (){
+size(700,600);
+}
+
+void draw(){
+float d = dist(x,y,xM,yM);
+  background(0);
+  ellipse(xM,yM,rM*2,rM*2);
+if(keyPressed && keyCode == UP){
+yM--;
+}
+if (keyPressed && keyCode == DOWN){
+yM++;
+}
+if (keyPressed && keyCode == LEFT){
+xM--;
+}
+if (keyPressed && keyCode == RIGHT){
+xM++;
+}
+
+ellipse(x,y,r*2,r*2);
+if(d<(r + rM)){
+x = (int)random(0,700);
+y = (int)random(0,600);
+rM=rM+10;
+}
+if(yM < 0 + rM){
+yM = rM;
+}
+if(yM>height - rM){
+yM = (height - rM);
+}
+if(xM<0+rM){
+xM= 0 + rM;
+}
+if(xM > width - rM){
+ xM = width-rM;
+}
+ellipse(x,y,r*2,r*2);
+
+fill(255);
+}
