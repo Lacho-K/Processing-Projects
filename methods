@@ -1,0 +1,35 @@
+int x =300; 
+int y =300;
+void setup() {
+  size(600, 600);
+}
+void draw() {
+  
+  background(#E2EA02);
+  if (keyPressed && key == 'd') {
+    x=x+3;
+  }
+  if (keyPressed && key == 'a') {
+    x=x-3;
+  }
+  if (keyPressed && key == 's') {
+    y=y+3;
+  }
+  if (keyPressed && key == 'w') {
+    y=y-3;
+  }
+   fill(255);
+  drawHumanoid(x, y);
+  drawHumanoid(mouseX, mouseY);
+}  
+
+void drawHumanoid(int x, int y ) {
+
+  ellipse(x, y-100, 50, 50);
+  line(x, y-75, x, y-60);
+  rect(x-10, y-60, 20, 100);
+  line(x+10, y-60, x+80, y);
+  line(x-10, y-60, x-80, y);
+  line(x-10, y+40, x-40, y+120);
+  line(x+10, y+40, x+60, y+115);
+}
