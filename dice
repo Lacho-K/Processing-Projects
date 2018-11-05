@@ -1,0 +1,132 @@
+int diceN1=1;
+int diceN2=2;
+int d =50;
+int x1 = 195;
+int y1 =430;
+int w1=100;
+int h1 =50;
+int x2 = 690;
+int y2 =430;
+int w2=100;
+int h2 =50;
+PImage dice1;
+PImage dice2;
+PImage dice3;
+PImage dice4;
+PImage dice5;
+PImage dice6;
+void setup(){
+size(1000,500);
+dice1=loadImage("dice1.png");
+dice2=loadImage("dice2.jpg");
+dice3=loadImage("dice3.png");
+dice4=loadImage("dice4.jpg");
+dice5=loadImage("dice5.png");
+dice6=loadImage("dice6.png");
+}
+
+
+
+void draw(){
+  fill(0);
+  if(diceN1 == diceN2){
+  background(#32FF05);
+  textSize(25);
+  text("its a match",400,height/2);
+  }
+  else{
+  background(#0091E8);
+  }
+  fill(#FFF305);
+  boolean OverButton1 = mouseX > x1 && mouseX < (x1+w1) && mouseY > y1 && mouseY < (y1+h1);
+  rect(x1,y1,w1,h1);
+  boolean OverButton2 = mouseX > x2 && mouseX < (x2+w2) && mouseY > y2 && mouseY < (y2+h2);
+  rect(x2,y2,w2,h2);
+  frameRate(30);
+  if(OverButton1 && mousePressed && mouseButton == LEFT){
+  diceN1=(int)random(1,7);
+  }
+  if(OverButton2 && mousePressed && mouseButton == LEFT){
+  diceN2=(int)random(1,7);
+  }
+  if(keyPressed && key =='r' || mousePressed && mouseButton == RIGHT){
+  diceN1 =(int)random(1,7); diceN2 = (int)random(1,7);
+  }
+  
+  if (diceN1 == 1 ){
+  textSize(30);
+  text('1',25,470);
+  ellipse(250,height/2,d,d);
+  }
+  if (diceN1 == 2 ){
+  text('2',25,470);
+  ellipse(150,150,d,d);
+  ellipse(270,360,d,d);
+  }
+  if (diceN1 == 3 ){
+  text('3',25,470);
+  ellipse(100,100,d,d);
+  ellipse(200,200,d,d);
+  ellipse(308,332,d,d);
+  }
+  if (diceN1 == 4 ){
+  text('4',25,470);
+  ellipse(200,200,d,d);
+  ellipse(300,200,d,d);
+  ellipse(200,300,d,d);
+  ellipse(300,300,d,d);
+  }
+  if(diceN1==5){
+  text('5',25,470);
+  ellipse(200,200,d,d);
+  ellipse(300,200,d,d);
+  ellipse(200,300,d,d);
+  ellipse(300,300,d,d);
+  ellipse(250,height/2,d,d);
+  }
+  
+  if(diceN1==6){
+  text('6',25,470);
+  ellipse(200,100,d,d);
+  ellipse(200,200,d,d);
+  ellipse(200,300,d,d);
+  ellipse(300,100,d,d);
+  ellipse(300,200,d,d);
+  ellipse(300,300,d,d);
+  }
+  if(diceN2 == 1){
+  text('1',515,470);
+  image(dice1,600,50);
+  }
+  
+  if(diceN2 == 2){
+  text('2',515,470);
+  image(dice2,600,50);
+  }
+  
+  if(diceN2 == 3){
+  text('3',515,470);
+  image(dice3,600,50);
+  }
+  
+  if(diceN2 == 4){
+  text('4',515,470);
+  image(dice4,600,50);
+  }
+  
+  if(diceN2 == 5){
+  text('5',515,470);
+  image(dice5,600,50);
+  }
+  
+  if(diceN2 == 6){
+  text('6',515,470);
+  image(dice6,600,50);
+  }
+  int sum = diceN1 + diceN2;
+  fill(#D3502F);
+  textSize(40);
+  text(sum,465,100);
+  
+  
+}
