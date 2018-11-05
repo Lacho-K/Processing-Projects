@@ -1,0 +1,42 @@
+PImage softUni;
+
+void setup() {
+  size(1280,720);
+  noStroke();
+  softUni = loadImage("softUni.png");
+}
+
+void draw() {
+  background(36,60,144);
+  fill(227,172,69);
+  ellipse(width/2,363,50,50);
+  fill(227,172,69);
+  rect(632,387,15,10);
+  fill(255);
+  rect(605,395,70,100);
+  image(softUni,611,407);
+  fill(227,172,69);
+  rect(610,495,20,100);
+  rect(650,495,20,100);
+  rect(675,395,100,15);
+  rect(505,395,100,15);
+  fill(69,114,227);
+  ellipse(width/2,790,400,400);
+  fill(255);
+  ellipse(630,360,10,10);
+  ellipse(650,360,10,10);
+  fill(0);
+  ellipse(630,360,3,3);
+  ellipse(650,360,3,3);
+  String s = "Hello World";
+  textSize(64);
+  fill(255);
+  text(s,450,150);
+  String a = ")";
+  textSize(30);
+  fill(149,17,32);
+  translate(542, 460);
+  rotate(PI/2.0);
+  text(a,-90,-90);
+}
+  
