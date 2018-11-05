@@ -1,0 +1,82 @@
+float ballX;
+float ballY;
+int ySpeed = 1;
+int xSpeed = 1;
+int score1;
+int score2;
+int rect1Y;
+int rect2Y;
+int rect1X;
+int rect2X;
+void setup(){
+size (800,600);
+score1 = 0;
+score2 = 0;
+rect1Y = 0;
+rect1X = 10;
+rect2Y = 0;
+rect2X = 760;
+ballX = width/2;
+ballY = height/2;
+}
+
+void draw(){
+  frameRate(300);
+  background(0);
+  rect(rect1X,rect1Y,30,100);
+  rect(rect2X,rect2Y,30,100);
+  ellipse( ballX,ballY,50,50);
+   ballX = ballX + xSpeed;
+   
+   if(ballX > rect2X && ballX < (ballX+30) && ballY > rect2Y && ballY < (rect2Y+100) ){
+   xSpeed = -xSpeed ;
+   }
+   
+   if (ballX < rect1X && ballX > (ballX - 30) && ballY > rect1Y && ballY < (rect1Y + 100)){
+    xSpeed = -xSpeed;
+   }
+   
+   if(ballX>width){
+   ballX=random(200,600);
+   ballY=random(100,500);
+   score1++;
+   }
+  
+   if(ballX<0){
+   ballX=random(200,600);
+   ballY=random(100,500);
+  score2++;
+  }
+  
+  if(ballX < 0){
+    xSpeed = xSpeed * - 1;
+  }
+  
+  ballY = ballY + ySpeed;
+   if(ballY > 568){
+     ySpeed = ySpeed * - 1;
+  }
+  if(ballY < 20){
+    ySpeed = ySpeed * - 1;
+  }
+  
+  textSize(40);
+  text(score2,740,50);
+  textSize(40);
+  text(score1,40,50);
+  
+  if(keyPressed && key=='s'){
+  rect1Y=rect1Y+5;
+  }
+  if(keyPressed && key=='w'){
+  rect1Y=rect1Y-5;
+  }
+  if(keyPressed && keyCode==UP){
+  rect2Y=rect2Y-5;
+  }
+  if(keyPressed && keyCode==DOWN){
+  rect2Y=rect2Y+5;
+  }
+  
+
+}
