@@ -1,0 +1,28 @@
+float secArrowL = 280;
+
+void setup(){
+size(600,600);
+}
+
+void draw(){
+background(0);
+noFill();
+strokeWeight(10);
+stroke(#F0BF0F);
+float alphaSec=radians(second() * 360 / 60 )- PI/2;
+float xSec = secArrowL * cos(alphaSec)+ width/2;
+float ySec = secArrowL * sin(alphaSec)+ height/2;
+ellipse(width/2,height/2,width-10,height-10); 
+strokeWeight(5);
+line(width/2,height/2,xSec,ySec);
+float alphaMin = radians(minute()*60)- PI/2;
+float xMin = 280 * cos(alphaMin)+ width/2;
+float yMin = 280 * sin(alphaMin)+ height/2;
+strokeWeight(8);
+line(width/2,height/2,xMin,yMin);
+float alphahour = radians((hour()%12) * 360 / 12) - PI/2;
+float xHour = 280 * cos(alphahour)+ width/2;
+float yHour = 280 * sin(alphahour)+ height/2;
+strokeWeight(10);
+line(width/2,height/2,xHour,yHour);
+}
